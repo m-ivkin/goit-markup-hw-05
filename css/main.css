@@ -332,19 +332,20 @@ address {
   transform: translate(-30%, 30%);
   width: 30px;
   height: 30px;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
 
-  color: #000000;
+  color: var(--logo-color);
   background-color: var(--primary-white-color);
   outline: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 0;
-  display: inline-flex;
+
   border-radius: 50%;
   border: none;
 
   cursor: pointer;
 }
 .icon-close {
-  align-self: center;
   fill: currentColor;
 }
 
