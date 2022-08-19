@@ -14,6 +14,10 @@
   --social-item-footer: rgba(255, 255, 255, 0.1);
   --works-description-bg-color: rgba(47, 48, 58, 0.8);
   --card-fill-color: rgba(33, 150, 243, 0.9);
+
+  /* animation */
+  --anim-fast: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --anim-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 body {
   background-color: var(--primary-white-color);
@@ -123,16 +127,16 @@ address {
   color: currentColor;
   position: relative;
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--anim-fast);
 }
 .site-nav .link:hover,
 .site-nav .link:focus {
   color: var(--accent-color);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--anim-fast);
 }
 .site-nav .link.current {
   color: var(--accent-color);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--anim-fast);
 }
 .link.current::after {
   content: "";
@@ -146,28 +150,8 @@ address {
   border-radius: 2px;
   background-color: var(--accent-color);
 
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--anim-fast);
 }
-/* .link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-
-  display: block;
-  width: 100%;
-  height: 4px;
-  border-radius: 2px;
-  background-color: var(--accent-color);
-
-  transform: scaleX(0);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.link:hover::after,
-.link:focus::after {
-  width: 100%;
-  transform: scaleX(1);
-} */
 /* Header contacts */
 .contacts-nav {
   display: flex;
@@ -193,20 +177,20 @@ address {
   letter-spacing: 0.02em;
   font-style: normal;
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--anim-fast);
 }
 .contacts-link:hover,
 .contacts-link:focus {
   color: var(--accent-color);
   fill: var(--accent-color);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--anim-fast);
 }
 .primary-icon {
   align-self: center;
   fill: currentColor;
   margin-right: 10px;
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--anim-fast);
 }
 .contacts-nav .link {
   display: block;
@@ -278,14 +262,15 @@ address {
   letter-spacing: 0.06em;
   border: none;
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--anim-fast);
 }
 .button-title:hover,
 .button-title:focus {
   background-color: var(--studio-background-color);
   color: var(--primary-text-color);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--anim-fast);
 }
+
 /* Modal window */
 .backdrop {
   position: fixed;
@@ -297,16 +282,13 @@ address {
   background-color: rgba(0, 0, 0, 0.2);
 
   opacity: 1;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity var(--anim-fast), visibility var(--anim-fast);
 }
 
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
-}
-.backdrop.is-hidden .modal {
-  transform: translate(-50%, -50%) scale(0.5);
 }
 
 .modal {
@@ -325,7 +307,11 @@ address {
 
   transform: translate(-50%, -50%) scale(1);
 
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  animation: heartBeat 1000ms ease-in-out 200ms;
+}
+
+.backdrop.is-hidden .modal {
+  animation-play-state: paused;
 }
 .backdrop-btn {
   position: absolute;
@@ -345,8 +331,15 @@ address {
 
   border-radius: 50%;
   border: none;
-
   cursor: pointer;
+
+  transition: color var(--anim-fast);
+}
+.backdrop-btn:hover,
+.backdrop-btn:focus {
+  color: var(--primary-white-color);
+  background-color: var(--logo-color);
+  transition: color var(--anim-fast);
 }
 .icon-close {
   fill: currentColor;
@@ -526,13 +519,13 @@ address {
   cursor: pointer;
   color: var(--icon-primary-color);
 
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 250ms var(--anim-fast);
 }
 .social-items:hover,
 .social-items:focus {
   background-color: var(--accent-color);
   color: var(--primary-white-color);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 250ms var(--anim-fast);
 }
 .social-items .social-icon {
   display: flex;
@@ -814,4 +807,31 @@ address {
   fill: currentColor;
   width: 20px;
   height: 20px;
+}
+
+/* Animation */
+@keyframes heartBeat {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+
+  20% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  40% {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+
+  60% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  80% {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
