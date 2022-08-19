@@ -132,17 +132,15 @@ address {
 .site-nav .link:hover,
 .site-nav .link:focus {
   color: var(--accent-color);
-  transition: color var(--anim-fast);
 }
 .site-nav .link.current {
   color: var(--accent-color);
-  transition: color var(--anim-fast);
 }
 .link.current::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: -1px;
 
   display: block;
   width: 100%;
@@ -183,17 +181,15 @@ address {
 .contacts-link:focus {
   color: var(--accent-color);
   fill: var(--accent-color);
-  transition: color var(--anim-fast);
 }
 .primary-icon {
   align-self: center;
   fill: currentColor;
-  margin-right: 10px;
 
-  transition: color var(--anim-fast);
+  transition: fill var(--anim-fast);
 }
 .contacts-nav .link {
-  display: block;
+  display: flex;
   position: relative;
 }
 /* Section */
@@ -261,14 +257,12 @@ address {
   text-align: center;
   letter-spacing: 0.06em;
   border: none;
-
-  transition: color var(--anim-fast);
 }
 .button-title:hover,
 .button-title:focus {
   background-color: var(--studio-background-color);
   color: var(--primary-text-color);
-  transition: color var(--anim-fast);
+  transition: color var(--anim-fast), background-color var(--anim-fast);
 }
 
 /* Modal window */
@@ -282,7 +276,7 @@ address {
   background-color: rgba(0, 0, 0, 0.2);
 
   opacity: 1;
-  transition: opacity var(--anim-fast), visibility var(--anim-fast);
+  transition: opacity var(--anim-fast);
 }
 
 .backdrop.is-hidden {
@@ -339,7 +333,6 @@ address {
 .backdrop-btn:focus {
   color: var(--primary-white-color);
   background-color: var(--logo-color);
-  transition: color var(--anim-fast);
 }
 .icon-close {
   fill: currentColor;
@@ -519,13 +512,12 @@ address {
   cursor: pointer;
   color: var(--icon-primary-color);
 
-  transition: 250ms var(--anim-fast);
+  transition: color var(--anim-fast), background-color var(--anim-fast);
 }
 .social-items:hover,
 .social-items:focus {
   background-color: var(--accent-color);
   color: var(--primary-white-color);
-  transition: 250ms var(--anim-fast);
 }
 .social-items .social-icon {
   display: flex;
@@ -580,15 +572,12 @@ address {
   opacity: 1;
 } */
 .card-img {
-  display: inline-block;
   position: relative;
   overflow: hidden;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.card-img:hover .card-wrap,
-.card-img:focus .card-wrap {
+.portfolio-item:hover .card-wrap,
+.portfolio-item:focus .card-wrap {
   transform: translateY(0);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .card-wrap {
   position: absolute;
@@ -608,7 +597,8 @@ address {
   background-color: var(--card-fill-color);
 
   transform: translateY(100%);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--anim-fast), color var(--anim-fast),
+    background-color var(--anim-fast);
 }
 
 .portfolio-item {
@@ -646,13 +636,12 @@ address {
 }
 .block {
   display: block;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .block:hover,
 .block:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow var(--anim-fast);
 }
 /* Button */
 .buttons {
@@ -681,7 +670,8 @@ address {
   align-items: center;
   border: none;
 
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--anim-fast), background-color var(--anim-fast),
+    box-shadow var(--anim-fast);
 }
 .button-item:hover,
 .button-item:focus {
@@ -690,7 +680,6 @@ address {
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* Clients */
 .clients-list {
@@ -712,13 +701,12 @@ address {
 .clients-icon {
   fill: currentColor;
   align-self: center;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--anim-fast), border-color var(--anim-fast);
 }
 .clients-item:hover,
 .clients-item:focus {
   color: var(--accent-color);
   border-color: var(--accent-color);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Footer */
@@ -743,12 +731,11 @@ address {
   line-height: 1.7;
   font-style: normal;
   margin-bottom: 9px;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--anim-fast);
 }
 .address-hyperlink:hover,
 .address-hyperlink:focus {
   color: var(--accent-color);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .address-link {
   color: var(--address-link);
@@ -756,12 +743,11 @@ address {
   line-height: 1.7;
   font-style: normal;
   margin-bottom: 9px;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--anim-fast);
 }
 .address-link:hover,
 .address-link:focus {
   color: var(--accent-color);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* Social networks */
 .footer-container {
@@ -791,7 +777,7 @@ address {
   background-color: var(--social-item-footer);
   border-radius: 50%;
   cursor: pointer;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--anim-fast);
 }
 .social-item-footer:not(:nth-child(4n)) {
   margin-right: 10px;
@@ -799,7 +785,6 @@ address {
 .social-item-footer:hover,
 .social-item-footer:focus {
   background-color: var(--accent-color);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .item-icon {
   align-self: center;
